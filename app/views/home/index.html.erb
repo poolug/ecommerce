@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-8 offset-2">
+    <div class="container">
+      <div class="row">
+        <% @variants.each do |varian| %>
+          <% if varian.variant_on_stock?  %>
+            <div class="col-md-3">
+              <div class="card">
+                <img class="card-img-top" src="https://dummyimage.com/600x400/c7c7c7/737373&text=image" alt="<%= varian.product.name%>"/>
+                <div class="card-block">
+                  <h5 class="card-title"><%= varian.product.name %></h5>
+                  <div class="card-text">
+                    <div class="badge badge-primary"><%= varian.product.categories.first.name %></div>
+                    <div>$<%= varian.product.price %></div>
+                  </div>
+                  <div class="row float-right">
+                    <div class="col-md-12">
+                      <%= form_for :cart, url: cart_path, method: :put do |f| %>
+                        <%= f.hidden_field :product_id, value: varian.product.id %>
+                        <%= f.hidden_field :quantity, value: 1 %>
+                        <%= f.submit "Add to cart", class:"btn btn-primary btn-sm" %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1>siiii</h1>

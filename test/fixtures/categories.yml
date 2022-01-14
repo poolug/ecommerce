@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 'Categorie Father'
+  category_id: nil
+
+two:
+  name: 'Categorie Children'
+  category_id: 1
+
+three:
+  name: 'Categorie Father 2'
+  category_id: nil
