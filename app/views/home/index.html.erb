@@ -3,14 +3,14 @@
     <div class="container">
       <div class="row">
         <% @variants.each do |varian| %>
-          <% if varian.variant_on_stock?  %>
+          <% if varian.variant_on_stock? && varian.visible_on_catalog? %>
             <div class="col-md-3">
               <div class="card">
                 <img class="card-img-top" src="https://dummyimage.com/600x400/c7c7c7/737373&text=image" alt="<%= varian.product.name%>"/>
                 <div class="card-block">
                   <h5 class="card-title"><%= varian.product.name %></h5>
                   <div class="card-text">
-                    <div class="badge badge-primary"><%= varian.product.categories.first.name %></div>
+                    <div class="badge badge-primary"><%= varian.product.categories.last.name %></div>
                     <div>$<%= varian.product.price %></div>
                   </div>
                   <div class="row float-right">
@@ -31,5 +31,3 @@
     </div>
   </div>
 </div>
-
-<h1>siiii</h1>

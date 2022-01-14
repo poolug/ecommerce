@@ -1,4 +1,4 @@
-30.times do |i|
+10.times do |i|
   products = Product.all
   colors = Color.all
   size = Size.all

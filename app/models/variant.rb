@@ -6,6 +6,7 @@ class Variant < ApplicationRecord
   belongs_to :color
   belongs_to :size
 
+  # sólo muestra productos con stock
   def variant_on_stock?
     if self.stock > 0
       return true
@@ -14,7 +15,8 @@ class Variant < ApplicationRecord
   end
 
   def visible_on_catalog?
-    self.last
+    # entrega la última variante del producto
+    Product.last.variants
   end
 
 end

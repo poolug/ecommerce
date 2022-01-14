@@ -32,8 +32,21 @@
   </div>
 
   <div class="field">
-    <%= form.label :categories %>
-    <h3>Categorias Hijos</h3>
+    <%= form.label :categories, style:"display: none" %>
+    <h3>Categorias</h3>
+        <%= form.collection_check_boxes(:category_ids,
+                                        Category.all_parents,
+                                        :id,
+                                        :name) do |b| %>
+        <%= b.label class:"label-checkbox" do%>
+            <%=b.check_box + b.text%>
+        <%end%>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :categories, style:"display: none" %>
+    <h3>Sub Categorias</h3>
         <%= form.collection_check_boxes(:category_ids,
                                         Category.all_children,
                                         :id,
