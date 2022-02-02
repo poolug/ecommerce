@@ -24,6 +24,10 @@ class Order < ApplicationRecord
     "BO"
   end
 
+  def order_price
+    self.total * 100
+  end
+
   def hash_size
     9
   end

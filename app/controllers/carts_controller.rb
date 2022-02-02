@@ -18,7 +18,7 @@ class CartsController < ApplicationController
     order = Order.find(params[:cart][:order_id])
 
     #price must be in cents
-    price = order.total * 100
+    price = order.order_price
 
     response = EXPRESS_GATEWAY.setup_purchase(price,
       ip: request.remote_ip,
