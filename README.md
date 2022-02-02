@@ -23,3 +23,5 @@ class OrderItem < ApplicationRecord
   belongs_to :order
 end
 ```
+
+- Se crea un método de instancia en carts_controller y un método de clase al modelo Order [order_price]
